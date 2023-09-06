@@ -1,0 +1,58 @@
+app-id: org.openrefine.OpenRefine
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk17
+command: openrefine.sh
+finish-args:
+  - --share=ipc
+  - --share=network
+cleanup:
+  - /include
+  - '*.a'
+  - '*.la'
+  - /lib/pkgconfig
+  - /share/man
+  - /share/cmake
+modules:
+
+  # Install Java
+  - name: openjdk
+    buildsystem : simple
+    build-commands:
+      - /usr/lib/sdk/openjdk17/install.sh
+
+  # Install OpenRefine from package
+  - name: openrefine-build
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/OpenRefine/OpenRefine/releases/download/3.7.4/openrefine-linux-3.7.4.tar.gz
+        sha256: 9ccc609c295a6739aac9e17fd5286f402cd173d20ec4220211c0daa47ee2eacd
+    build-commands:
+      - mkdir -p /app/bin
+      - cp --recursive ./* --target-directory /app/bin
+      - install -Dm 755 refine -t /app/bin      
+
+  # Install freedesktop files (see https://www.freedesktop.org/)
+  - name: openrefine-desktop
+    buildsystem: simple
+    sources:
+      - type: file
+        path: org.openrefine.OpenRefine.appdata.xml
+      - type: file
+        path: org.openrefine.OpenRefine.desktop
+      - type: file
+        path: OpenRefine.64x64.png
+      - type: file
+        path: OpenRefine.128x128.png
+      - type: file
+        path: openrefine.sh
+    build-commands:
+      # Install desktop files and icons
+      - install -Dm 644 org.openrefine.OpenRefine.appdata.xml -t /app/share/appdata
+      - install -Dm 644 org.openrefine.OpenRefine.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm 644 OpenRefine.64x64.png /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.png
+      - install -Dm 644 OpenRefine.128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
+      - install -Dm 755 openrefine.sh -t /app/bin

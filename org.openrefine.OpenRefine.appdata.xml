@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.openrefine.OpenRefine</id>
+  <launchable type="desktop-id">org.openrefine.OpenRefine.desktop</launchable>
+  <name>OpenRefine</name>
+  <summary>A tool for working with messy data</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <developer_name>OpenRefine</developer_name>
+  <url type="homepage">https://openrefine.org/</url>
+  <url type="bugtracker">https://github.com/OpenRefine/OpenRefine/issues</url>
+  <url type="help">https://openrefine.org/docs</url>
+  <description>
+    <p>
+      OpenRefine is a powerful free, open source tool for working with messy data: cleaning it;
+      transforming it from one format into another; and extending it with web services and external data.
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://openrefine.org/assets/images/projectscreen-720ca8d3bd18b8bcd4bec8facd84be38.png</image>
+    </screenshot>
+  </screenshots>
+  <update_contact>someone_AT_openrefine.org</update_contact>
+  <content_rating type="oars-1.1">
+  </content_rating>
+  <releases>
+    <release version="v3.7.4" date="2023-07-17">
+      <url>https://github.com/OpenRefine/OpenRefine/releases/tag/3.7.4</url>
+    </release>
+  </releases>
+  <provides>
+    <binary>refine</binary>
+  </provides>
+</component>
