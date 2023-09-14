@@ -1,5 +1,5 @@
 <div>
-<img align="left" style="margin: 0px 15px 0px 0px;" src="OpenRefine.64x64.png" alt="OpenRefine Icon" />
+<img align="left" width="64" height="64" style="margin: 0px 15px 0px 0px;" src="OpenRefine.128x128.png" alt="OpenRefine Icon" />
 
 # OpenRefine on Flatpak
 &nbsp;
