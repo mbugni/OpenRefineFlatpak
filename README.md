@@ -5,7 +5,8 @@
 &nbsp;
 </div>
 
-This project contains files to build [OpenRefine](https://openrefine.org/) as a Flatpak app.
+This project contains files to build [OpenRefine](https://openrefine.org/) as a Flatpak app: it is a prototype for
+[helping the author](https://github.com/OpenRefine/containers/issues/2) to create the app or to build it locally.
 
 ## How to build the app
 
@@ -36,7 +37,8 @@ See [flatpak documentation](https://docs.flatpak.org/) for more info.
 
 The first build can take a couple of minutes, it depends on your machine performances. It install the app, making it available for your user in the system.
 
-*NOTE:* if you want to install the app system wide, remove the `--user` option and the use `sudo` command.
+*NOTE:* if you want to install the app system wide, remove the `--user` option and prepend `sudo` in the above commands
+(see [documentation](https://docs.flathub.org/docs/for-users/user-vs-system-install)).
 
 ### 3 - Run the app
 You can run the OpenRefine launching it from your favorite desktop, or manually by using the `flatpak` command:
